@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "tusb.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,7 +90,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
-
+  tud_init(BOARD_TUD_RHPORT);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -100,6 +100,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    tud_task();
   }
   /* USER CODE END 3 */
 }
